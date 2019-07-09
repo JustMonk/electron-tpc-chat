@@ -1,0 +1,28 @@
+.tabs {
+
+}
+
+.tabs-nav {
+   display: flex;
+   justify-content: space-between;
+}
+
+.tabs-nav a {
+   height: 50px;
+   flex-grow: 1;
+   text-decoration: none;
+   color: #6eb9ee;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+.tabs-nav .active {
+   border-bottom: 2px solid #6eb9ee;
+   background: #f0f5fd;
+}
+
+.tabs-content div {
+
+}

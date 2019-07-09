@@ -1,0 +1,126 @@
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: #dedede;
+}
+
+.wrapper {
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+   width: 400px;
+   margin: 0 auto;
+   background: #fff;
+}
+
+.server-form {
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+}
+
+.server-form input {
+   padding: 10px;
+   border-radius: 2px;
+   border: 1px solid #c7c7c7;
+   margin: 3px 0;
+}
+
+.server-form button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   cursor: pointer;
+   color: #fff;
+   background: #7ab4de;
+   padding: 12px;
+   margin: 10px 0;
+   border: none;
+   outline: none;
+   border-radius: 2px;
+   text-transform: uppercase;
+}
+
+#run-server {
+   background: #7ab4de;
+}
+
+#close-server {
+   background: #de7a7a;
+}
+
+#close-client {
+   background: #de7a7a;
+}
+
+#server-console {
+   height: 350px;
+   border-radius: 2px;
+   border: 1px solid #e6e6e6;
+   overflow: hidden;
+   overflow-y: scroll;
+}
+
+.client-form {
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+}
+
+.client-form input {
+   padding: 10px;
+   border-radius: 2px;
+   border: 1px solid #c7c7c7;
+   margin: 3px 0;
+}
+
+.client-form button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   cursor: pointer;
+   color: #fff;
+   background: #7ab4de;
+   padding: 12px;
+   margin: 10px 0;
+   border: none;
+   outline: none;
+   border-radius: 2px;
+   text-transform: uppercase;
+}
+
+#user-chat {
+   height: 300px;
+   border-radius: 2px;
+   border: 1px solid #e6e6e6;
+   overflow: hidden;
+   overflow-y: scroll;
+}
+
+#user-panel {
+   display: flex;
+   flex-direction: column;
+}
+
+#user-controls {
+   display: flex;
+   align-items: center;
+}
+#user-controls input {
+   flex-grow: 1;
+   border: none;
+   outline: none;
+   border-radius: 20px;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+#user-controls button {
+   margin: 0;
+   background: transparent;
+   color: grey;
+    font-size: 22px;
+    border: 1px solid grey;
+    border-radius: 200px;
+    outline: none;
+    margin-left: 5px;
+    padding: 6px;
+}
