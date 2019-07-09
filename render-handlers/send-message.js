@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron')
 
 document.addEventListener('click', (e) => {
-   if(e.target.id != 'send-message') return;
+   if (!document.getElementById('send-message') || !document.getElementById('send-message').contains(e.target)) return;
    console.log('click on send message')
    let data = document.getElementById('client-message').value;
    ipcRenderer.send('send-message', data);

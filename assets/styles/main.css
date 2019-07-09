@@ -57,6 +57,7 @@ body {
    border: 1px solid #e6e6e6;
    overflow: hidden;
    overflow-y: scroll;
+   font-family: monospace;
 }
 
 .client-form {

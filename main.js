@@ -77,17 +77,28 @@ ipcMain.on('run-server', (event, arg) => {
       }
    };
 
-   function addMessage(user, data) {
+
+   function sendMessage(user, data) {
+      //WRITE ONLY JSON.STRING
+
       let hours = `${new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()}`;
       let minutes = `${new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()}`;
-      let message = `\x1b[32m[${hours}:${minutes}]\x1b[36m ${user}:\x1b[0m ${data.toString().trim()}`;
+
+      let messageObj = { user: user, message: data.toString().trim(), date: `${hours}:${minutes}` };
 
       clients.users.forEach((conn) => {
-         if (user != conn.nickname) conn.write(message);
+         if (user != conn.nickname) {
+            conn.write(JSON.stringify(messageObj));
+         }
+         else {
+            let selfMessage = Object.create(messageObj);
+            selfMessage.self = true;
+            conn.write(JSON.stringify(messageObj));
+         }
       });
-      console.log(`\x1b[42m[SERVER]>> \x1b[0m${message}`);
 
-      event.sender.send('got-message-reply', `${user}: ${data.toString().trim()}`);
+      //for server console
+      event.sender.send('got-message-reply', JSON.stringify(messageObj));
    }
 
    var server = net.createServer(function (conn) {
@@ -98,7 +109,7 @@ ipcMain.on('run-server', (event, arg) => {
 
       conn.on('data', function (data) {
          if (!conn.nickname) conn.nickname = data.toString().trim();
-         addMessage(conn.nickname, data);
+         sendMessage(conn.nickname, data);
       });
 
       conn.on('close', function () {
@@ -140,14 +151,27 @@ ipcMain.on('close-server', (event, arg) => {
    });
 });
 
+//CLIENT BLOCK
 ipcMain.on('client-connect', (event, arg) => {
    console.log('in connect')
-   client = require('./main-process/connect-client')
+   //client = require('./main-process/connect-client')
+
+   var net = require('net');
+   client = new net.Socket();
+   client.setEncoding('utf8');
+
+   // show message from server
+
+   client.on('close', function () {
+      console.log('connection is closed');
+   });
+
    const ip = arg.ip;
    const port = arg.port;
    const nickname = arg.nickname;
    client.on('data', function (data) {
       console.log('reply on client')
+      console.dir(data);
       event.sender.send('new-message-reply', data);
    });
    // connect to server
