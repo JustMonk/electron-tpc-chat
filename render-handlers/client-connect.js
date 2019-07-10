@@ -11,11 +11,12 @@ document.addEventListener('click', (e) => {
 
 ipcRenderer.on('client-connect-reply', (event, arg) => {
    //change form to server open
+   let obj = JSON.parse(arg);
    let tab = document.getElementById('tab2').querySelector('.client-form');
 
    let fs = require('fs');
    fs.readFile('./markup/open-client-form.html', function(err, data) {
       if (err) console.log(err);
-      tab.innerHTML = data.toString();
+      tab.innerHTML = data.toString().replace('${SERVER}', obj.ip).replace('${USER}', obj.nickname);
    });
 })

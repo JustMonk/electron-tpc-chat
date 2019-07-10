@@ -177,7 +177,7 @@ ipcMain.on('client-connect', (event, arg) => {
    // connect to server
    client.connect(port, ip, function () {
       console.log('connected to server')
-      event.sender.send('client-connect-reply', {});
+      event.sender.send('client-connect-reply', JSON.stringify({ip: ip, nickname: nickname}));
       client.write(nickname);
    });
 });
