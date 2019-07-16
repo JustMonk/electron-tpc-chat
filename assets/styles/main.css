@@ -179,3 +179,34 @@ body {
    justify-content: space-between;
    margin-bottom: 10px;
 }
+
+.user-message {
+   max-width: 80%;
+}
+
+/*styles for self message*/
+.self-message {
+   display: flex;
+   justify-content: flex-end;
+   max-width: none;
+}
+
+.self-message .baloon {
+   max-width: none;
+}
+
+.self-message .baloon-user {
+   padding-right: 10px;
+   text-align: right;
+}
+
+.self-message .baloon-text {
+   background: #a763ca;
+   max-width: 80%;
+   border-radius: 10px 10px 0px 10px;
+}
+
+.self-message .baloon-wrapper {
+   display: flex;
+   flex-direction: column;
+}

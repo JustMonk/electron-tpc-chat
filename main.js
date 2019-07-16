@@ -18,7 +18,7 @@ function createWindow() {
    win.loadFile('index.html')
 
    // Отображаем средства разработчика.
-   win.webContents.openDevTools()
+   //win.webContents.openDevTools()
 
    // Будет вызвано, когда окно будет закрыто.
    win.on('closed', () => {
@@ -91,9 +91,10 @@ ipcMain.on('run-server', (event, arg) => {
             conn.write(JSON.stringify(messageObj));
          }
          else {
-            let selfMessage = Object.create(messageObj);
+            let selfMessage = {};
+            Object.assign(selfMessage, messageObj);
             selfMessage.self = true;
-            conn.write(JSON.stringify(messageObj));
+            conn.write(JSON.stringify(selfMessage));
          }
       });
 
