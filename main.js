@@ -124,6 +124,10 @@ ipcMain.on('run-server', (event, arg) => {
 
    })
 
+   server.on('connection', function(conn) {
+      console.log(`client connected`);
+   })
+
    server.on('error', function (err) {
       if (err.code == 'EADDRINUSE') {
          console.warn('Address in use, retrying...');
@@ -189,4 +193,9 @@ ipcMain.on('got-message', (event, arg) => {
 
 ipcMain.on('send-message', (event, arg) => {
    client.write(arg);
+})
+
+ipcMain.on('close-client', (event, arg) => {
+   client.end();
+   event.sender.send('close-client-reply');
 })
