@@ -2,7 +2,6 @@ const { ipcRenderer } = require('electron')
 
 document.addEventListener('click', (e) => {
    if (e.target.id != 'client-connect') return;
-   console.log('click on connect')
    let port = +document.getElementById('connect-port').value;
    let ip = document.getElementById('connect-ip').value;
    let nickname = document.getElementById('connect-nickname').value;
@@ -21,7 +20,6 @@ ipcRenderer.on('client-connect-reply', (event, arg) => {
 
       //add send on enter handler
       let input = document.getElementById('client-message');
-      console.log(input);
       input.onfocus = messageInputFocus;
       input.onblur = messageInputBlur;
 

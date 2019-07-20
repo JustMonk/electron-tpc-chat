@@ -1,6 +1,7 @@
 body {
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   background: #dedede;
+   /*background: #dedede;*/
+   background: #f3f3f3;
 }
 
 @font-face {
@@ -17,6 +18,15 @@ body {
    background: #fff;
 }
 
+.wrapper input {
+   padding: 9px 12px;
+   border-radius: 2px;
+   border: 1px solid #c7c7c7;
+   margin: 3px 0;
+   font-family: 'Segoe UI';
+   font-size: 15px;
+}
+
 .btn {
    display: flex;
    justify-content: center;
@@ -24,12 +34,14 @@ body {
    text-decoration: none;
    cursor: pointer;
    color: #fff;
-   padding: 12px;
+   padding: 10px;
    margin: 10px 0;
    border: none;
    outline: none;
    border-radius: 2px;
    text-transform: uppercase;
+   font-family: 'Segoe UI';
+   font-size: 16px;
 }
 
 .btn-main {
@@ -54,7 +66,24 @@ body {
    flex-direction: column;
 }
 
-.server-form input {
+/*.server-form input {
+   padding: 8px;
+   border-radius: 2px;
+   border: 1px solid #c7c7c7;
+   margin: 3px 0;
+   font-family: 'Segoe UI';
+   font-size: 15px;
+}*/
+.server-form select {
+   padding: 8px;
+   border-radius: 2px;
+   border: 1px solid #c7c7c7;
+   margin: 3px 0;
+   font-family: 'Segoe UI';
+   font-size: 15px;
+}
+
+.server-form option {
    padding: 10px;
    border-radius: 2px;
    border: 1px solid #c7c7c7;
@@ -69,6 +98,7 @@ body {
    border: 1px solid #e0e0e0;
    margin: 0;
    padding: 5px;
+   text-transform: uppercase;
 }
 
 #server-console {
@@ -103,15 +133,15 @@ body {
    flex-direction: column;
 }
 
-.client-form input {
+/*.client-form input {
    padding: 10px;
    border-radius: 2px;
    border: 1px solid #c7c7c7;
    margin: 3px 0;
-}
+}*/
 
 #user-chat {
-   height: 345px;
+   height: 390px;
    border-radius: 2px;
    border: 1px solid #e6e6e6;
    overflow: hidden;
@@ -156,7 +186,7 @@ body {
 .baloon-wrapper {
    display: flex;
    flex-direction: column;
-   margin: 10px 0;
+   margin: 4px 0;
    font-family: Segoe UI;
    font-size: 13px;
 }

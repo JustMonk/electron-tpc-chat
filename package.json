@@ -8,6 +8,17 @@
       "dist": "electron-builder"
    },
    "build": {
+      "extraResources": [
+         {
+            "from": "./markup",
+            "to": "../markup",
+            "filter": [
+               "**/*"
+            ]
+         }
+      ],
+      "publish": null,
+      "asar": false,
       "win": {
          "target": [
             {

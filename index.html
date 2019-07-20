@@ -5,8 +5,8 @@
    <meta charset="UTF-8">
    <link rel="stylesheet" href="assets/styles/main.css">
    <link rel="stylesheet" href="assets/styles/tabs.css">
-   <link rel="stylesheet" href="assets/font-awesome/css/all.css">
-   <title>Electron TCP test</title>
+   <link rel="stylesheet" href="assets/font-awesome/css/all.min.css">
+   <title>Electron TCP chat</title>
 </head>
 
 <body>
@@ -20,34 +20,11 @@
          <div class="tabs-content">
             <div id="tab1">
                <div class="server-form">
-                  <script>
-                     (function () {
-                        let tab = document.getElementById('tab1').querySelector('.server-form');
-                        let fs = require('fs');
-                        fs.readFile('./markup/create-server-form.html', function (err, data) {
-                           if (err) console.log(err);
-                           tab.innerHTML = data.toString()
-                           require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-                              document.getElementById('ip').value = add;
-                           })
-                        });
-                     })()
-                  </script>
                </div>
             </div>
 
             <div id="tab2">
                <div class="client-form">
-                  <script>
-                        (function () {
-                           let tab = document.getElementById('tab2').querySelector('.client-form');
-                           let fs = require('fs');
-                           fs.readFile('./markup/client-connect-form.html', function (err, data) {
-                              if (err) console.log(err);
-                              tab.innerHTML = data.toString()
-                           });
-                        })() 
-                  </script>
                </div>
             </div>
          </div>
@@ -57,6 +34,8 @@
    <script>
       //resources
       require('./assets/tabs/tabs')
+      //base form
+      require('./render-handlers/base-render');
       //handlers
       require('./render-handlers/server-start');
       require('./render-handlers/server-close');
